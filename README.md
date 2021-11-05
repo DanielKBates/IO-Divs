@@ -5,4 +5,4 @@ Should work just fine with any class based CSS, all examples are with TailwindCS
 
 Use, copy, whatever
 
-As a note, if anyone would like to show me how to implement animations with this I would be your friend forever. Im thinking i'll need another variable that will change once `isVisible` gets set to true, then adding in the animation class.
+As a note, if anyone would like to show me how to implement keyframe animations with this I would be your friend forever. Im thinking i'll need another variable that will change once `isVisible` gets set to true, then adding in the animation class.
