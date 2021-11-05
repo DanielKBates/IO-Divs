@@ -1,6 +1,6 @@
 # IO-Divs
 
-Small custom hook/component using Intersection Observer API to add in "scroll" based animations for React components.
+Small custom hook/component library using Intersection Observer API to add in "scroll" based animations for React components.
 Should work just fine with any class based CSS, all examples are with TailwindCSS, might maybe make a styled-components version in the future
 
 Use, copy, whatever
