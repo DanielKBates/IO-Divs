@@ -1,8 +1,7 @@
 import React from "react";
 import useOnScroll from "./useOnScroll";
 
-const IODiv = (props) => {
-  const { activeClass, children, inactiveClass, threshold, staticClass } = props;
+const IODiv = ({ activeClass, children, inactiveClass, threshold, staticClass }) => {
 
   const [scrollRef, isVisible] = useOnScroll({
     root: null,
