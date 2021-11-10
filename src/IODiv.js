@@ -2,7 +2,7 @@ import React from "react";
 import useOnScroll from "./useOnScroll";
 
 const IODiv = (props) => {
-  const { activeClassName, children, inactiveClassName, threshold } = props;
+  const { activeClass, children, inactiveClass, threshold, staticClass } = props;
 
   const [scrollRef, isVisible] = useOnScroll({
     root: null,
@@ -10,8 +10,12 @@ const IODiv = (props) => {
     threshold: threshold,
   });
 
+  function classConcat(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+
   return (
-    <div ref={scrollRef} className={isVisible? `${activeClassName} ` : `${inactiveClassName}`}>
+    <div ref={scrollRef} className={classConcat(isVisible ? `${activeClass} ` : `${inactiveClass}`, staticClass)}>
       {children}
     </div>
   );

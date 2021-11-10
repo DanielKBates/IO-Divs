@@ -3,16 +3,16 @@ import IODiv from "./IODiv";
 
 function App() {
   return (
-    <div className="py-12 w-11/12 md:w-5/6 mx-auto bg-gray-200 flex flex-col space-y-10 items-center">
+    <div className="py-12 w-11/12 md:w-5/6 mx-auto bg-blue-50 flex flex-col space-y-10 items-center">
       <h1 className="text-center text-indigo-600 text-4xl underline">
         Intersection Observer Divs
       </h1>
       <p className="w-2/3">
         Built with Tailwind, although any class CSS will work (styled-components
-        coming soon?). Need to make a class joiner so one needn't rewrite styles
-        that apply to both active and inactive styles. Anywho, use these for
+        coming soon?). <span className="line-through" >I need to implement a class joiner so one needn't rewrite styles
+          that apply to both active and inactive styles.</span> Now with 3 class props! Anywho, use these for
         scroll/position-on-a-viewport based animations. Utility class based
-        frameworks would probs benefit from this most. 
+        frameworks would probs benefit from this most.
         <a
           className="text-indigo-600 block"
           href="https://github.com/DanielKBates/IO-Divs"
@@ -22,93 +22,101 @@ function App() {
       </p>
       <IODiv
         threshold={1}
-        activeClassName="bg-red-400 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
-        inactiveClassName="bg-purple-600 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
+        activeClass="bg-red-400 "
+        inactiveClass="bg-purple-600"
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
       >
         Scroll down just a lil bit
       </IODiv>
       <IODiv
         threshold={1}
-        activeClassName="bg-blue-400 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
-        inactiveClassName="bg-yellow-200 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
+        activeClass="bg-blue-400"
+        inactiveClass="bg-yellow-200"
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
       >
-        We can change rudimentary styles based on if the element is on the
-        screens viewport.
+        Change rudimentary styles based on if the element is on the
+        screens viewport
       </IODiv>{" "}
       <IODiv
         threshold={0.5}
-        activeClassName="bg-indigo-400 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
-        inactiveClassName="bg-red-600 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
+        activeClass="bg-indigo-400"
+        inactiveClass="bg-red-600"
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
       >
-        We can change the threshold at which the element will change its style.{" "}
+        Set the threshold at which the element will change its style.{" "}
       </IODiv>{" "}
       <IODiv
         threshold={0.75}
-        activeClassName="bg-red-400 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
-        inactiveClassName="opacity-0  h-96"
+        activeClass="bg-red-400"
+        inactiveClass="opacity-0 "
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
       >
-        Boo! We can change opacity and visibility styles..
+        Boo! Change opacity and visibility styles..
       </IODiv>{" "}
       <h1 className="text-center text-indigo-600 text-4xl underline">
         Transformations and Transitions
       </h1>
       <IODiv
         threshold={1}
-        activeClassName="bg-green-600 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in "
-        inactiveClassName="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in opacity-0"
+        activeClass="bg-green-600 "
+        inactiveClass="opacity-0"
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in "
       >
-        ...and we can add transitions between the changes
+        ...and add transitions between the changes
       </IODiv>
       <IODiv
         threshold={1}
-        activeClassName="bg-pink-600 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in "
-        inactiveClassName="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in opacity-0 translate-x-14"
+        activeClass="bg-pink-600 "
+        inactiveClass="opacity-0 translate-x-14"
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in "
+
       >
         Combine translations and transitions for opacity for moving fade in
-        effects!
+        effects
       </IODiv>
       <IODiv
         threshold={1}
-        activeClassName="bg-purple-500 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in"
-        inactiveClassName="bg-purple-500 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in rotate-12 scale-75"
+        inactiveClass="rotate-12 scale-75"
+        staticClass="bg-purple-500 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in"
       >
-        Manipulate seemingly static elements.
+        Manipulate seemingly static elements
       </IODiv>
       <IODiv
         threshold={1}
-        activeClassName="bg-yellow-500 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl animate-shake"
-        inactiveClassName="bg-pink-700 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
+        activeClass="bg-yellow-500 animate-shake"
+        inactiveClass="bg-pink-700"
+        staticClass="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl"
       >
-        Trigger animations based on if the element is on the screen
+        Trigger keyframe animations based on if the element is on the screen
       </IODiv>
       <IODiv
         threshold={0.25}
-        activeClassName="flex flex-col space-y-6 bg-gray-300 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in "
-        inactiveClassName=" flex flex-col w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all  duration-1000 ease-in opacity-0 -translate-x-14"
+        inactiveClass="-translate-x-14 opacity-0"
+        staticClass="flex flex-col space-y-6 bg-gray-300 w-2/3 p-12 items-center justify-center rounded-xl transform transition-all duration-1000 ease-in"
       >
         <p className="mb-12">
-          We can even nest multiple IODiv's inside one another. The viewport is
+          Nest multiple IODivs inside one another. The viewport is
           always the window so the elements do not interact with one another in
-          terms of their position on the screen.
+          terms of their position on the screen
         </p>
         <IODiv
           threshold={1}
-          activeClassName="bg-green-300 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in "
-          inactiveClassName="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all  duration-1000 ease-in opacity-0 -translate-x-14"
+          inactiveClass="opacity-0 -translate-x-14"
+          staticClass="bg-green-300 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease-in"
         >
           Hello
         </IODiv>
         <IODiv
           threshold={1}
-          activeClassName="bg-purple-300 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease "
-          inactiveClassName="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all  duration-1000 ease opacity-0 -translate-y-14"
+          inactiveClass="opacity-0 -translate-y-14"
+          staticClass="bg-purple-300 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transform transition-all duration-1000 ease "
         >
           World
         </IODiv>
         <IODiv
           threshold={1}
-          activeClassName="bg-yellow-400 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl  transition-all duration-1000 ease-in "
-          inactiveClassName="h-96 w-2/3 p-12 flex items-center justify-center rounded-xl  transition-all  duration-1000 ease-in opacity-0 "
+          inactiveClass="opacity-0 translate-x-14"
+          staticClass="bg-yellow-400 h-96 w-2/3 p-12 flex items-center justify-center rounded-xl transition-all duration-1000 ease-in "
         >
           Sunny day to you!
         </IODiv>
