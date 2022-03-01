@@ -1,21 +1,18 @@
 import { useRef, useState, useEffect } from "react"
 
 const useOnScroll = (options) => {
-  const scrollRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  const scrollCallBack = (entries) => {
-    const [entry] = entries;
-    setIsVisible(entry.isIntersecting);
+  const scrollRef = useRef(null);
+ 
+  const handleScroll = (events) => {
+    const [event] = events;
+    setIsVisible(event.isIntersecting);
   };
+  
   useEffect(() => {
-    const observer = new IntersectionObserver(scrollCallBack, options);
-
-    // currently will only reference the viewport of the window, although it is possible to reference another elements viewpoint
-    let currentRef= scrollRef.current
+    const observer = new IntersectionObserver(handleScroll, options);
+    let currentRef = scrollRef.current
     if (currentRef) observer.observe(currentRef);
-
-    // unsubscribe when the IODiv unmounts
     return () => {
       if (currentRef) observer.unobserve(currentRef);
     };
